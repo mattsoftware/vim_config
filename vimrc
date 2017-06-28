@@ -97,6 +97,7 @@ endif
     "map ” gT
     " Undo tree
     nmap <leader>u :UndotreeToggle<cr>
+    nmap <leader>e :earlier<CR>
 
 "====[ Git Gutter ]====
     " git gutter hide/show
@@ -106,7 +107,7 @@ endif
     nmap <Leader>gn <Plug>GitGutterNextHunk
     nmap <Leader>gp <Plug>GitGutterPrevHunk
     nmap <Leader>ga <Plug>GitGutterStageHunk
-    nmap <Leader>gr <Plug>GitGutterRevertHunk
+    nmap <Leader>gr <Plug>GitGutterUndoHunk
     nmap <Leader>gv <Plug>GitGutterPreviewHunk
     nmap <Leader>gd <Plug>GitGutterDebug
     " let g:gitgutter_sign_added = 'xx'
@@ -356,7 +357,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
     let g:flow#autoclose=1
 
 "===[ markdown preview]===
-let vim_markdown_preview_browser='Google Chrome'
+    let vim_markdown_preview_browser='Google Chrome'
 
 "===[ prettier ]=== 
 " npm -g isntall prettier
