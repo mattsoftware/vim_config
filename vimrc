@@ -358,3 +358,8 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "===[ markdown preview]===
 let vim_markdown_preview_browser='Google Chrome'
 
+"===[ prettier ]=== 
+" npm -g isntall prettier
+    let g:prettier#config#tab_width = 4
+    let g:prettier#config#jsx_bracket_same_line = 'false'
+    let g:prettier#config#print_width = 120
