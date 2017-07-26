@@ -25,7 +25,7 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'undotree')
     call add(g:pathogen_disabled, 'Align')
     "call add(g:pathogen_disabled, 'vim-misc')
-    "call add(g:pathogen_disabled, 'vim-session')
+    call add(g:pathogen_disabled, 'vim-session')
     call add(g:pathogen_disabled, 'vim-airline')
     call add(g:pathogen_disabled, 'vim-flow')
     call add(g:pathogen_disabled, 'vim-markdown-preview')
@@ -58,7 +58,7 @@ endif
     nmap <leader>h :echo "h1 h2 hb ht hc he"<CR>
     nmap <leader>h1 :echo "F3:help F5:whitespace F6:paste F7:unix"<CR>
     nmap <leader>h2 :echo "n:number l:invisibles w:whitesapce"<CR>
-    nmap <leader>hb :echo "b:next(bn) ctrl-^:switch bd:close bp:previous :enew(new buffer in current window)"<CR>
+    nmap <leader>hb :echo "be:explorer ctrl-^:switch bd:close bp:previous :enew(new buffer in current window)"<CR>
     nmap <leader>he :echo ";e:editwindow ;et:edittab ;es:editsplit ;ev:editvirticalsplit"<CR>
     nmap <leader>ht :echo "gt:advance gT:backwards tabedit:new"<CR>
     nmap <leader>hc :echo "changes:list g;:back g,:forward jumps:list ctrl-o:backward ctrl-i:forward"<CR>
@@ -84,7 +84,7 @@ endif
     " Buffers
     "nnoremap <F8> :buffers<CR>:buffer<Space>
     "nnoremap <F9> :bn<CR>
-    nmap <leader>b :bn<CR>
+    "nmap <leader>b :bn<CR>
     " Windows
     map <C-h> <C-w>h
     map <C-j> <C-w>j
@@ -130,7 +130,6 @@ endif
     map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
     " next line maps <A-]>
     map ‘ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-    execute "highlight Pmenu ctermbg=238 gui=bold"
 
 "====[ Modelines ]====
     " Check the first/last 5 lines for a modeline
@@ -172,12 +171,12 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/"<CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/"<CR>
 map <leader>et :tabedit <C-R>=expand("%:p:h") . "/"<CR>
 
-"colorscheme darkblue
-highlight Visual ctermfg=lightRed ctermbg=black cterm=reverse
-highlight Search ctermfg=lightRed ctermbg=black cterm=reverse
-color dracula
-"" au BufNewFile,BufRead *.phtml setf php
-
+" Colours
+    "colorscheme darkblue
+    highlight Visual ctermfg=lightRed ctermbg=black cterm=reverse
+    highlight Search ctermfg=lightRed ctermbg=black cterm=reverse
+    color dracula
+    "" au BufNewFile,BufRead *.phtml setf php
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -359,8 +358,25 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "===[ markdown preview]===
     let vim_markdown_preview_browser='Google Chrome'
 
-"===[ prettier ]=== 
-" npm -g isntall prettier
+"===[ omni completion ]===
+    " http://vim.wikia.com/wiki/VimTip1228
+    "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+    "inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+    "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+    "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+    "inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+    "inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+"===[ prettier ]===
+    " npm -g isntall prettier
     let g:prettier#config#tab_width = 4
     let g:prettier#config#jsx_bracket_same_line = 'false'
     let g:prettier#config#print_width = 120
+
+
+" Omnicomplete colours (last as someone before is screwing it up)
+highlight Pmenu ctermbg=black gui=bold
+let g:tsuquyomi_disable_default_mappings = 1
+
+" We will update the comment colour too while we are here
+highlight Comment ctermfg=69
