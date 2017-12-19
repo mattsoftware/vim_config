@@ -9,5 +9,9 @@ ln -s .vim/vimrc .vimrc
 cd .vim
 git submodule init
 git submodule update
+
+pushd bundle/tern_for_vim/
+npm install
+popd
 ```
 
