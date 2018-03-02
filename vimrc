@@ -28,7 +28,6 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'vim-session')
     call add(g:pathogen_disabled, 'vim-airline')
     call add(g:pathogen_disabled, 'vim-flow')
-    call add(g:pathogen_disabled, 'vim-markdown-preview')
     "call pathogen#runtime_append_all_bundles()
     call pathogen#infect()
     call pathogen#helptags()
@@ -354,9 +353,6 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 "====[ Flow ]====
     let g:flow#autoclose=1
-
-"===[ markdown preview]===
-    let vim_markdown_preview_browser='Google Chrome'
 
 "===[ omni completion ]===
     " http://vim.wikia.com/wiki/VimTip1228

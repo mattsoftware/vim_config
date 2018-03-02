@@ -10,6 +10,8 @@ cd .vim
 git submodule init
 git submodule update
 
+npm install -g instant-markdown-d
+
 pushd bundle/tern_for_vim/
 npm install
 popd
