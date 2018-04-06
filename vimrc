@@ -376,3 +376,4 @@ let g:tsuquyomi_disable_default_mappings = 1
 
 " We will update the comment colour too while we are here
 highlight Comment ctermfg=69
+

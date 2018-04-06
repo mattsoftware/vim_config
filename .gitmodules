@@ -83,3 +83,6 @@
 [submodule "bundle/instant-markdown-d"]
 	path = bundle/instant-markdown-d
 	url = https://github.com/suan/vim-instant-markdown
+[submodule "bundle/taboo"]
+	path = bundle/taboo
+	url = https://github.com/gcmt/taboo.vim
