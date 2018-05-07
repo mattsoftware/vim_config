@@ -5,7 +5,7 @@
 
 let $VIM='~/.vim/'
 let g:vtextwidth_limit = 101
-set synmaxcol=120
+set synmaxcol=500
 set shell=/bin/bash
 
 "====[ activate pathogen. Note, must be before any filetype detection commands! ]=========
