@@ -10,7 +10,6 @@ set shell=/bin/bash
 
 "====[ activate pathogen. Note, must be before any filetype detection commands! ]=========
     let g:pathogen_disabled = []
-    call add(g:pathogen_disabled, 'ctrlp')
     "call add(g:pathogen_disabled, 'dracula-theme')
     "call add(g:pathogen_disabled, 'git-nerdtree')
     call add(g:pathogen_disabled, 'html5')
