@@ -108,6 +108,8 @@ endif
     nmap <Leader>gr <Plug>GitGutterUndoHunk
     nmap <Leader>gv <Plug>GitGutterPreviewHunk
     nmap <Leader>gd <Plug>GitGutterDebug
+    nmap <Leader>gW :let g:gitgutter_diff_args = '-w'<CR>
+    nmap <Leader>gw :let g:gitgutter_diff_args = ''<CR>
     " let g:gitgutter_sign_added = 'xx'
     " let g:gitgutter_sign_modified = 'yy'
     " let g:gitgutter_sign_removed = 'zz'
