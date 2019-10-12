@@ -17,7 +17,7 @@ set shell=/bin/bash
     "call add(g:pathogen_disabled, 'localrc')
     call add(g:pathogen_disabled, 'php.vim')
     call add(g:pathogen_disabled, 'sqlutil')
-    call add(g:pathogen_disabled, 'surround')
+    "call add(g:pathogen_disabled, 'surround')
     call add(g:pathogen_disabled, 'tagbar')
     call add(g:pathogen_disabled, 'textobj-gitgutter')
     call add(g:pathogen_disabled, 'textobj-user')
