@@ -375,11 +375,22 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
     "inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 "===[ prettier ]===
-    " npm -g isntall prettier
+    " npm -g install prettier
+    " https://github.com/prettier/vim-prettier
     let g:prettier#config#tab_width = 4
     let g:prettier#config#jsx_bracket_same_line = 'false'
     let g:prettier#config#print_width = 120
-
+    let g:prettier#config#parser = 'flow'
+    "let g:prettier#config#use_tabls = 'false'
+    "let g:prettier#config#semi = 'true'
+    "let g:prettier#config#sinfle_quote = 'true'
+    "let g:prettier#config#bracket_spacing = 'false'
+    "let g:prettier#config#jsx_bracket_same_line = 'true'
+    "let g:prettier#config#arrow_parens = 'always'
+    "let g:prettier#config#trailing_comma = 'all'
+    "let g:prettier#config#config_precedence = 'prefer-file'
+    "let g:prettier#config#prose_wrap = 'preserve'
+    "let g:prettier#config#html_whitespace_sensitivity = 'css'
 
 " Omnicomplete colours (last as someone before is screwing it up)
 highlight Pmenu ctermbg=black gui=bold
