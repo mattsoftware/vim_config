@@ -140,6 +140,7 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+"let g:ctrlsf_debug_mode = 1
 
 "====[ Modelines ]====
     " Check the first/last 5 lines for a modeline
