@@ -100,14 +100,14 @@ endif
 "====[ Git Gutter ]====
     " git gutter hide/show
     nmap <leader>gt :GitGutterToggle<CR>
-    nmap ]g <Plug>GitGutterNextHunk
-    nmap [g <Plug>GitGutterPrevHunk
-    nmap <Leader>gn <Plug>GitGutterNextHunk
-    nmap <Leader>gp <Plug>GitGutterPrevHunk
-    nmap <Leader>ga <Plug>GitGutterStageHunk
-    nmap <Leader>gr <Plug>GitGutterUndoHunk
-    nmap <Leader>gv <Plug>GitGutterPreviewHunk
-    nmap <Leader>gd <Plug>GitGutterDebug
+    nmap ]g <Plug>(GitGutterNextHunk)
+    nmap [g <Plug>(GitGutterPrevHunk)
+    nmap <Leader>gn <Plug>(GitGutterNextHunk)
+    nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+    nmap <Leader>ga <Plug>(GitGutterStageHunk)
+    nmap <Leader>gr <Plug>(GitGutterUndoHunk)
+    nmap <Leader>gv <Plug>(GitGutterPreviewHunk)
+    nmap <Leader>gd <Plug>(GitGutterDebug)
     nmap <Leader>gW :let g:gitgutter_diff_args = '-w'<CR>
     nmap <Leader>gw :let g:gitgutter_diff_args = ''<CR>
     " let g:gitgutter_sign_added = 'xx'
