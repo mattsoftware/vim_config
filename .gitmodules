@@ -41,9 +41,6 @@
 [submodule "bundle/vim-session"]
 	path = bundle/vim-session
 	url = git@github.com:xolox/vim-session
-[submodule "vim/vim-misc"]
-	path = vim/vim-misc
-	url = git@github.com:xolox/vim-misc
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline
