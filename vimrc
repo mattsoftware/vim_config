@@ -10,24 +10,42 @@ set shell=/bin/bash
 
 "====[ activate pathogen. Note, must be before any filetype detection commands! ]=========
     let g:pathogen_disabled = []
+
+    call add(g:pathogen_disabled, 'VimCompletesMe')
+    "call add(g:pathogen_disabled, 'bufexplorer.vim')
+    "call add(g:pathogen_disabled, 'coc')
+    call add(g:pathogen_disabled, 'codeium')
+    call add(g:pathogen_disabled, 'ctrlp')
+    call add(g:pathogen_disabled, 'ctrlsf')
     "call add(g:pathogen_disabled, 'dracula-theme')
     "call add(g:pathogen_disabled, 'git-nerdtree')
+    "call add(g:pathogen_disabled, 'gitgutter')
     call add(g:pathogen_disabled, 'html5')
+    "call add(g:pathogen_disabled, 'instant-markdown-d')
     call add(g:pathogen_disabled, 'javascript')
     "call add(g:pathogen_disabled, 'localrc')
+    "call add(g:pathogen_disabled, 'pathogen')
     call add(g:pathogen_disabled, 'php.vim')
-    call add(g:pathogen_disabled, 'sqlutil')
     "call add(g:pathogen_disabled, 'surround')
-    call add(g:pathogen_disabled, 'tagbar')
+    call add(g:pathogen_disabled, 'syntastic')
+    "call add(g:pathogen_disabled, 'taboo')
+    "call add(g:pathogen_disabled, 'tagbar')
+    call add(g:pathogen_disabled, 'tern_for_vim')
     call add(g:pathogen_disabled, 'textobj-gitgutter')
     call add(g:pathogen_disabled, 'textobj-user')
-    call add(g:pathogen_disabled, 'undotree')
-    call add(g:pathogen_disabled, 'Align')
-    "call add(g:pathogen_disabled, 'vim-misc')
-    call add(g:pathogen_disabled, 'vim-session')
-    call add(g:pathogen_disabled, 'vim-airline')
+    call add(g:pathogen_disabled, 'typescript-tsuquyomi')
+    call add(g:pathogen_disabled, 'typescript-vim')
+    "call add(g:pathogen_disabled, 'vim-airline')
     call add(g:pathogen_disabled, 'vim-flow')
-    "call pathogen#runtime_append_all_bundles()
+    call add(g:pathogen_disabled, 'vim-fugitive')
+    "call add(g:pathogen_disabled, 'vim-go')
+    call add(g:pathogen_disabled, 'vim-misc')
+    call add(g:pathogen_disabled, 'vim-node')
+    call add(g:pathogen_disabled, 'vim-pikaboo')
+    "call add(g:pathogen_disabled, 'vim-prettier')
+    call add(g:pathogen_disabled, 'vim-session')
+    call add(g:pathogen_disabled, 'vimproc')
+    "call pathogen"runtime_append_all_bundles()
     call pathogen#infect()
     call pathogen#helptags()
 
@@ -122,10 +140,11 @@ endif
     autocmd BufWritePost * GitGutter
 
 "====[ NERD Tree (git) ]====
-    nmap <leader>t :NERDTreeToggle<CR>
+    "nmap <leader>t :NERDTreeToggle<CR>
     let g:NERDTreeUseSimpleIndicator = 1
     let g:NERDTreeQuitOnOpen = 1
-    map <C-n> :NERDTreeToggle<CR>
+    noremap <C-n> :NERDTreeToggle<CR>
+    noremap <Leader>m :NERDTreeFind<CR>
 
 "====[ ctags and Tagbar ]====
     nmap <leader>tt :TagbarToggle<CR>
@@ -174,7 +193,7 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
     highlight SpecialKey ctermfg=darkGrey
     "highlight NonText guifg=#4a4a59
     "highlight SpecialKey guifg=#4a4a59
-    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+    exec "set listchars=tab:\uBB\uBB,trail:·,nbsp:~"
     set list
 
 
@@ -363,7 +382,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 ":execute "helptags " . g:opamshare . "/merlin/vim/doc"
 
 "====[ Airline ]====
-    "let g:airline#extensions#tabline#enabled = 0
+    let g:airline#extensions#tabline#enabled = 1
 
 "====[ Flow ]====
     let g:flow#autoclose=1
