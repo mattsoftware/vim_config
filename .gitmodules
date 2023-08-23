@@ -92,3 +92,13 @@
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = git@github.com:fatih/vim-go
+[submodule "bundle/coc"]
+	path = bundle/coc
+	url = git@github.com:neoclide/coc.nvim
+	branch = release
+[submodule "bundle/codeium"]
+	path = bundle/codeium
+	url = git@github.com:Exafunction/codeium.vim.git
+[submodule "bundle/vim-peekaboo"]
+	path = bundle/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo
