@@ -1,4 +1,21 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "languageserver": {
+    "go": {},
+    "deno": {},
+    "css": {},
+    "yank": {},
+    "snippets": {},
+    "prettier": {},
+    "lists": {},
+    "html": {},
+    "eslint": {},
+    "tsserver": {},
+    "pyright": {},
+    "json": {}
+  },
+  "html.autoCreateQuotes": false,
+  "html.autoClosingTags": false
+
 }

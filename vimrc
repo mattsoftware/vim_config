@@ -14,7 +14,7 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'VimCompletesMe')
     "call add(g:pathogen_disabled, 'bufexplorer.vim')
     "call add(g:pathogen_disabled, 'coc')
-    call add(g:pathogen_disabled, 'codeium')
+    "call add(g:pathogen_disabled, 'codeium')
     call add(g:pathogen_disabled, 'ctrlp')
     call add(g:pathogen_disabled, 'ctrlsf')
     "call add(g:pathogen_disabled, 'dracula-theme')
@@ -44,6 +44,7 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'vim-pikaboo')
     "call add(g:pathogen_disabled, 'vim-prettier')
     call add(g:pathogen_disabled, 'vim-session')
+    "call add(g:pathogen_disabled, 'vim-terraform')
     call add(g:pathogen_disabled, 'vimproc')
     "call pathogen"runtime_append_all_bundles()
     call pathogen#infect()
@@ -551,7 +552,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
     " Add (Neo)Vim's native statusline support
     " NOTE: Please see `:h coc-status` for integrations with external plugins that
     " provide custom statusline: lightline.vim, vim-airline
-    set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+    "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
     " Mappings for CoCList
     " Show all diagnostics
@@ -579,13 +580,16 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
     let g:terraform_fmt_on_save = 1
 
 " === codeium ===
-    "imap <script><silent><nowait><expr> <C-g> codeium#Accept()
-    "imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
+    let g:airline_section_y = '{…}%3{codeium#GetStatusString()}'
+    "let g:codeium_no_map_tab = 1
+    let g:codeium_disable_bindings = 1
+
+    imap <script><silent><nowait><expr> <C-\> codeium#Accept()
+    imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
     "imap <C-[>   <Cmd>call codeium#CycleCompletions(-1)<CR>
     "imap <C-x>   <Cmd>call codeium#Clear()<CR>
-    imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
-    imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
-    let g:airline_section_y = '{codeium#GetStatusString()}'
+    "imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
+    "imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
 
 "===[ eof ]===
 
