@@ -574,6 +574,10 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 " === coc-yank ===
     nnoremap <silent> fy  :<C-u>CocList -A --normal yank<cr>
 
+" === terraform ===
+    let g:terraform_binary_path = "/Users/matt/bin/,tofu"
+    let g:terraform_fmt_on_save = 1
+
 " === codeium ===
     "imap <script><silent><nowait><expr> <C-g> codeium#Accept()
     "imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
