@@ -4,7 +4,6 @@
 "
 
 let $VIM='~/.vim/'
-let g:vtextwidth_limit = 101
 set synmaxcol=500
 set shell=/bin/bash
 
@@ -286,6 +285,7 @@ endif
     endfunction
 
 "====[ Make the (vtextwidth)th column stand out ]====================
+    let g:vtextwidth_limit = 101
     highlight ColorColumn ctermbg=magenta
     call matchadd('ColorColumn', '\%'.(g:vtextwidth_limit).'v', 100)
     " ============================================================================================> = <=
