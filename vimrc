@@ -584,15 +584,6 @@ let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 ":execute "helptags " . g:opamshare . "/merlin/vim/doc"
 
-"===[ omni completion ]===
-    " http://vim.wikia.com/wiki/VimTip1228
-    "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-    "inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-    "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-    "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-    "inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-    "inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-
 "===[ golang ]===
     autocmd FileType go setlocal shiftwidth=4 softtabstop=4 noexpandtab
     autocmd FileType go setlocal listchars=tab:\ \ ,trail:·,nbsp:~
@@ -604,10 +595,6 @@ if has('mac')
 endif
 
 "autocmd VimEnter * redraw!
-
-"" Omnicomplete colours (last as someone before is screwing it up)
-"highlight Pmenu ctermbg=black gui=bold
-"let g:tsuquyomi_disable_default_mappings = 1
 
 " We will update the comment colour too while we are here
 highlight Comment ctermfg=69
