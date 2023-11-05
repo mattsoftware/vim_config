@@ -32,6 +32,7 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'textobj-user')
     call add(g:pathogen_disabled, 'typescript-tsuquyomi')
     call add(g:pathogen_disabled, 'typescript-vim')
+    "call add(g:pathogen_disabled, 'undotree')
     "call add(g:pathogen_disabled, 'vim-airline')
     call add(g:pathogen_disabled, 'vim-flow')
     call add(g:pathogen_disabled, 'vim-fugitive')
