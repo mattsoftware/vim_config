@@ -74,7 +74,7 @@ if has('persistent_undo')
 endif
 
 "====[ Key mappings ]=========
-    let mapleader = ";"
+    let mapleader = ";" " default is \
     " ;h = help
     "nmap <leader>h :echo "h1 h2 hb ht hc he"<CR>
     "nmap <leader>h1 :echo "F3:help F5:whitespace F6:paste F7:unix"<CR>
