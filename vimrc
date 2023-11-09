@@ -120,7 +120,123 @@ endif
     nmap <leader>u :UndotreeToggle<cr>
     nmap <leader>e :earlier<CR>
 
-"===[ coc ]===
+" === codeium ===
+    let g:airline_section_y = '{…}%3{codeium#GetStatusString()}'
+    "let g:codeium_no_map_tab = 1
+    let g:codeium_disable_bindings = 1
+
+    imap <script><silent><nowait><expr> <C-\> codeium#Accept()
+    imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
+    "imap <C-[>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+    "imap <C-x>   <Cmd>call codeium#Clear()<CR>
+    "imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
+    "imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
+
+"====[ CtrlSF ]====
+    nmap     <C-F>f <Plug>CtrlSFPrompt
+    vmap     <C-F>f <Plug>CtrlSFVwordPath
+    vmap     <C-F>F <Plug>CtrlSFVwordExec
+    nmap     <C-F>n <Plug>CtrlSFCwordPath
+    nmap     <C-F>p <Plug>CtrlSFPwordPath
+    nnoremap <C-F>o :CtrlSFOpen<CR>
+    nnoremap <C-F>t :CtrlSFToggle<CR>
+    inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+    "let g:ctrlsf_debug_mode = 1
+
+"====[ git-nerdtree : NERD Tree (git) ]====
+    "nmap <leader>t :NERDTreeToggle<CR>
+    let g:NERDTreeUseSimpleIndicator = 1
+    let g:NERDTreeQuitOnOpen = 1
+    noremap <C-n> :NERDTreeToggle<CR>
+    noremap <Leader>m :NERDTreeFind<CR>
+
+"====[ gitgutter : Git Gutter ]====
+    " git gutter hide/show
+    nmap <leader>gt :GitGutterToggle<CR>
+    nmap ]g <Plug>(GitGutterNextHunk)
+    nmap [g <Plug>(GitGutterPrevHunk)
+    nmap <Leader>gn <Plug>(GitGutterNextHunk)
+    nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+    nmap <Leader>ga <Plug>(GitGutterStageHunk)
+    nmap <Leader>gr <Plug>(GitGutterUndoHunk)
+    nmap <Leader>gv <Plug>(GitGutterPreviewHunk)
+    nmap <Leader>gd <Plug>(GitGutterDebug)
+    nmap <Leader>gW :let g:gitgutter_diff_args = '-w'<CR>
+    nmap <Leader>gw :let g:gitgutter_diff_args = ''<CR>
+    " let g:gitgutter_sign_added = 'xx'
+    " let g:gitgutter_sign_modified = 'yy'
+    " let g:gitgutter_sign_removed = 'zz'
+    " let g:gitgutter_sign_removed_first_line = '^^'
+    " let g:gitgutter_sign_modified_removed = 'ww'
+    execute "highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=NONE"
+    execute "highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=NONE"
+    execute "highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=NONE"
+    " set update times
+    autocmd BufWritePost * GitGutter
+
+"====[ Syntastic ]====
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    "let g:syntastic_debug = 3
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1 " 0
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0 " 1
+    let g:syntastic_loc_list_height = 5
+    ""let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': [] }
+    ""let g:syntastic_html_tidy_exec = 'tidy --indent auto --indent-spaces 2'
+    ""let g:syntastic_html_checkers = ['html_lint.py']
+    ""let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+    "let g:syntastic_html_tidy_blocklevel_tags=["md-tabs", "md-tab", "md-cards", "md-card", "md-card-content"]
+    ""let g:syntastic_html_tidy_inline_tags=[]
+    ""let g:syntastic_html_tidy_empty_tags=[]
+
+    let g:syntastic_javascript_checkers = []
+    "let g:syntastic_javascript_checkers = ['eslint']
+    "let g:syntastic_javascript_checkers = ['flow']
+    " npm install -g eslint eslint-react eslint-plugin-react
+    "let g:syntastic_javascript_flow_exe = 'flow'
+
+    let g:syntastic_error_symbol = '❌'
+    let g:syntastic_style_error_symbol = '⁉️'
+    let g:syntastic_warning_symbol = '⚠️'
+    let g:syntastic_style_warning_symbol = '💩'
+
+    highlight link SyntasticErrorSign SignColumn
+    highlight link SyntasticWarningSign SignColumn
+    highlight link SyntasticStyleErrorSign SignColumn
+    highlight link SyntasticStyleWarningSign SignColumn
+
+"====[ Airline ]====
+    let g:airline#extensions#tabline#enabled = 1
+
+"====[ Flow ]====
+    let g:flow#autoclose=1
+
+"===[ prettier ]===
+    " npm -g install prettier
+    " https://github.com/prettier/vim-prettier
+    let g:prettier#config#tab_width = 4
+    let g:prettier#config#jsx_bracket_same_line = 'false'
+    let g:prettier#config#print_width = 120
+    let g:prettier#config#parser = 'flow'
+    "let g:prettier#config#use_tabls = 'false'
+    "let g:prettier#config#semi = 'true'
+    "let g:prettier#config#sinfle_quote = 'true'
+    "let g:prettier#config#bracket_spacing = 'false'
+    "let g:prettier#config#jsx_bracket_same_line = 'true'
+    "let g:prettier#config#arrow_parens = 'always'
+    "let g:prettier#config#trailing_comma = 'all'
+    "let g:prettier#config#config_precedence = 'prefer-file'
+    "let g:prettier#config#prose_wrap = 'preserve'
+    "let g:prettier#config#html_whitespace_sensitivity = 'css'
+
+" === terraform ===
+    let g:terraform_binary_path = "/Users/matt/bin/,tofu"
+    let g:terraform_fmt_on_save = 1
+
+"===[ coc ]=== NOTE this is here as something above it breaks the ]g key combo
     set encoding=utf-8
     set nobackup
     set nowritebackup
@@ -275,122 +391,6 @@ endif
 
     " === coc-yank ===
     nnoremap <silent> fy  :<C-u>CocList -A --normal yank<cr>
-
-" === codeium ===
-    let g:airline_section_y = '{…}%3{codeium#GetStatusString()}'
-    "let g:codeium_no_map_tab = 1
-    let g:codeium_disable_bindings = 1
-
-    imap <script><silent><nowait><expr> <C-\> codeium#Accept()
-    imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
-    "imap <C-[>   <Cmd>call codeium#CycleCompletions(-1)<CR>
-    "imap <C-x>   <Cmd>call codeium#Clear()<CR>
-    "imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
-    "imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
-
-"====[ CtrlSF ]====
-    nmap     <C-F>f <Plug>CtrlSFPrompt
-    vmap     <C-F>f <Plug>CtrlSFVwordPath
-    vmap     <C-F>F <Plug>CtrlSFVwordExec
-    nmap     <C-F>n <Plug>CtrlSFCwordPath
-    nmap     <C-F>p <Plug>CtrlSFPwordPath
-    nnoremap <C-F>o :CtrlSFOpen<CR>
-    nnoremap <C-F>t :CtrlSFToggle<CR>
-    inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-    "let g:ctrlsf_debug_mode = 1
-
-"====[ NERD Tree (git) ]====
-    "nmap <leader>t :NERDTreeToggle<CR>
-    let g:NERDTreeUseSimpleIndicator = 1
-    let g:NERDTreeQuitOnOpen = 1
-    noremap <C-n> :NERDTreeToggle<CR>
-    noremap <Leader>m :NERDTreeFind<CR>
-
-"====[ Git Gutter ]====
-    " git gutter hide/show
-    nmap <leader>gt :GitGutterToggle<CR>
-    nmap ]g <Plug>(GitGutterNextHunk)
-    nmap [g <Plug>(GitGutterPrevHunk)
-    nmap <Leader>gn <Plug>(GitGutterNextHunk)
-    nmap <Leader>gp <Plug>(GitGutterPrevHunk)
-    nmap <Leader>ga <Plug>(GitGutterStageHunk)
-    nmap <Leader>gr <Plug>(GitGutterUndoHunk)
-    nmap <Leader>gv <Plug>(GitGutterPreviewHunk)
-    nmap <Leader>gd <Plug>(GitGutterDebug)
-    nmap <Leader>gW :let g:gitgutter_diff_args = '-w'<CR>
-    nmap <Leader>gw :let g:gitgutter_diff_args = ''<CR>
-    " let g:gitgutter_sign_added = 'xx'
-    " let g:gitgutter_sign_modified = 'yy'
-    " let g:gitgutter_sign_removed = 'zz'
-    " let g:gitgutter_sign_removed_first_line = '^^'
-    " let g:gitgutter_sign_modified_removed = 'ww'
-    execute "highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=NONE"
-    execute "highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=NONE"
-    execute "highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=NONE"
-    " set update times
-    autocmd BufWritePost * GitGutter
-
-"====[ Syntastic ]====
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    "let g:syntastic_debug = 3
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1 " 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0 " 1
-    let g:syntastic_loc_list_height = 5
-    ""let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': [] }
-    ""let g:syntastic_html_tidy_exec = 'tidy --indent auto --indent-spaces 2'
-    ""let g:syntastic_html_checkers = ['html_lint.py']
-    ""let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-    "let g:syntastic_html_tidy_blocklevel_tags=["md-tabs", "md-tab", "md-cards", "md-card", "md-card-content"]
-    ""let g:syntastic_html_tidy_inline_tags=[]
-    ""let g:syntastic_html_tidy_empty_tags=[]
-
-    let g:syntastic_javascript_checkers = []
-    "let g:syntastic_javascript_checkers = ['eslint']
-    "let g:syntastic_javascript_checkers = ['flow']
-    " npm install -g eslint eslint-react eslint-plugin-react
-    "let g:syntastic_javascript_flow_exe = 'flow'
-
-    let g:syntastic_error_symbol = '❌'
-    let g:syntastic_style_error_symbol = '⁉️'
-    let g:syntastic_warning_symbol = '⚠️'
-    let g:syntastic_style_warning_symbol = '💩'
-
-    highlight link SyntasticErrorSign SignColumn
-    highlight link SyntasticWarningSign SignColumn
-    highlight link SyntasticStyleErrorSign SignColumn
-    highlight link SyntasticStyleWarningSign SignColumn
-
-"====[ Airline ]====
-    let g:airline#extensions#tabline#enabled = 1
-
-"====[ Flow ]====
-    let g:flow#autoclose=1
-
-"===[ prettier ]===
-    " npm -g install prettier
-    " https://github.com/prettier/vim-prettier
-    let g:prettier#config#tab_width = 4
-    let g:prettier#config#jsx_bracket_same_line = 'false'
-    let g:prettier#config#print_width = 120
-    let g:prettier#config#parser = 'flow'
-    "let g:prettier#config#use_tabls = 'false'
-    "let g:prettier#config#semi = 'true'
-    "let g:prettier#config#sinfle_quote = 'true'
-    "let g:prettier#config#bracket_spacing = 'false'
-    "let g:prettier#config#jsx_bracket_same_line = 'true'
-    "let g:prettier#config#arrow_parens = 'always'
-    "let g:prettier#config#trailing_comma = 'all'
-    "let g:prettier#config#config_precedence = 'prefer-file'
-    "let g:prettier#config#prose_wrap = 'preserve'
-    "let g:prettier#config#html_whitespace_sensitivity = 'css'
-
-" === terraform ===
-    let g:terraform_binary_path = "/Users/matt/bin/,tofu"
-    let g:terraform_fmt_on_save = 1
 
 "========================================================================
 
