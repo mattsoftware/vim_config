@@ -16,12 +16,14 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'ctrlp')
     call add(g:pathogen_disabled, 'ctrlsf')
     "call add(g:pathogen_disabled, 'dracula-theme')
-    "call add(g:pathogen_disabled, 'git-nerdtree')
+    call add(g:pathogen_disabled, 'git-nerdtree')
     "call add(g:pathogen_disabled, 'gitgutter')
     call add(g:pathogen_disabled, 'html5')
     "call add(g:pathogen_disabled, 'instant-markdown-d')
     call add(g:pathogen_disabled, 'javascript')
     "call add(g:pathogen_disabled, 'localrc')
+    "call add(g:pathogen_disabled, 'nerdtree')
+    "call add(g:pathogen_disabled, 'nerdtree-git-plugin')
     call add(g:pathogen_disabled, 'php.vim')
     "call add(g:pathogen_disabled, 'presenting')
     "call add(g:pathogen_disabled, 'surround')
@@ -144,12 +146,22 @@ endif
     inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
     "let g:ctrlsf_debug_mode = 1
 
-"====[ git-nerdtree : NERD Tree (git) ]====
-    "nmap <leader>t :NERDTreeToggle<CR>
-    let g:NERDTreeUseSimpleIndicator = 1
-    let g:NERDTreeQuitOnOpen = 1
+""====[ git-nerdtree : NERD Tree (git) ]====
+"    "nmap <leader>t :NERDTreeToggle<CR>
+"    let g:NERDTreeUseSimpleIndicator = 1
+"    let g:NERDTreeQuitOnOpen = 1
+"    noremap <C-n> :NERDTreeToggle<CR>
+"    noremap <Leader>m :NERDTreeFind<CR>
+"====[ nerdrree ]====
+    "nnoremap <leader>n :NERDTreeFocus<CR>
+    "nnoremap <C-n> :NERDTree<CR>
     noremap <C-n> :NERDTreeToggle<CR>
     noremap <Leader>m :NERDTreeFind<CR>
+    " This option quits nerdtree after opening a file
+    let g:NERDTreeQuitOnOpen = 1
+    " Start NERDTree when Vim is started without file arguments.
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 "====[ gitgutter : Git Gutter ]====
     " git gutter hide/show
