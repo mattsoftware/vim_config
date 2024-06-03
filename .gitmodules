@@ -108,3 +108,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "bundle/presenting"]
+	path = bundle/presenting
+	url = https://github.com/sotte/presenting.vim

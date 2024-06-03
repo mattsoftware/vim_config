@@ -23,6 +23,7 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'javascript')
     "call add(g:pathogen_disabled, 'localrc')
     call add(g:pathogen_disabled, 'php.vim')
+    "call add(g:pathogen_disabled, 'presenting')
     "call add(g:pathogen_disabled, 'surround')
     call add(g:pathogen_disabled, 'syntastic')
     "call add(g:pathogen_disabled, 'taboo')
