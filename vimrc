@@ -3,6 +3,37 @@
 "                     ... :so ~/.vimrc
 "
 
+""""""""""""""""""""
+" The ':map' command creates a key map that works in normal, visual, select and operator pending modes. The ':map!' command creates a key map that works in insert and command-line mode.
+" :map
+" :map!
+"
+" :map  - normal, visual, select and operator pending modes.
+" :map! - insert and command-line mode
+" :nmap - Display normal mode maps
+" :imap - Display insert mode maps
+" :vmap - Display visual and select mode maps
+" :smap - Display select mode maps
+" :xmap - Display visual mode maps
+" :cmap - Display command-line mode maps
+" :omap - Display operator pending mode maps
+"
+"
+" n  Normal mode map. Defined using ':nmap' or ':nnoremap'.
+" i  Insert mode map. Defined using ':imap' or ':inoremap'.
+" v  Visual and select mode map. Defined using ':vmap' or ':vnoremap'.
+" x  Visual mode map. Defined using ':xmap' or ':xnoremap'.
+" s  Select mode map. Defined using ':smap' or ':snoremap'.
+" c  Command-line mode map. Defined using ':cmap' or ':cnoremap'.
+" o  Operator pending mode map. Defined using ':omap' or ':onoremap'.
+" 
+" <Space>  Normal, Visual and operator pending mode map. Defined using
+"          ':map' or ':noremap'.
+" !  Insert and command-line mode map. Defined using 'map!' or
+"    'noremap!'.
+
+"""""""""""""""""""
+
 let $VIM='~/.vim/'
 set synmaxcol=500
 set shell=/bin/bash
@@ -13,7 +44,7 @@ set shell=/bin/bash
     "call add(g:pathogen_disabled, 'bufexplorer.vim')
     "call add(g:pathogen_disabled, 'coc') " NOTE: If you disable this, comment out the coc config below
     "call add(g:pathogen_disabled, 'codeium')
-    call add(g:pathogen_disabled, 'ctrlp')
+    "call add(g:pathogen_disabled, 'ctrlp')
     call add(g:pathogen_disabled, 'ctrlsf')
     "call add(g:pathogen_disabled, 'dracula-theme')
     call add(g:pathogen_disabled, 'git-nerdtree')
@@ -34,16 +65,16 @@ set shell=/bin/bash
     call add(g:pathogen_disabled, 'textobj-gitgutter')
     call add(g:pathogen_disabled, 'textobj-user')
     call add(g:pathogen_disabled, 'typescript-tsuquyomi')
-    call add(g:pathogen_disabled, 'typescript-vim')
+    "call add(g:pathogen_disabled, 'typescript-vim')
     "call add(g:pathogen_disabled, 'undotree')
     "call add(g:pathogen_disabled, 'vim-airline')
     call add(g:pathogen_disabled, 'vim-flow')
-    call add(g:pathogen_disabled, 'vim-fugitive')
+    "call add(g:pathogen_disabled, 'vim-fugitive')
     "call add(g:pathogen_disabled, 'vim-go')
     call add(g:pathogen_disabled, 'vim-misc')
     call add(g:pathogen_disabled, 'vim-node')
     "call add(g:pathogen_disabled, 'vim-peekaboo')
-    "call add(g:pathogen_disabled, 'vim-prettier')
+    call add(g:pathogen_disabled, 'vim-prettier')
     call add(g:pathogen_disabled, 'vim-session')
     "call add(g:pathogen_disabled, 'vim-terraform')
     call add(g:pathogen_disabled, 'VimCompletesMe')
@@ -70,11 +101,14 @@ set ruler
 set cursorcolumn
 
 "====[ Undo ]====
-if has('persistent_undo')
+"if has('persistent_undo')
     set undofile
     set undodir=$HOME/.vim_undofiles
+    " How many undos
     set undolevels=5000
-endif
+    " number of lines to save for undo
+    set undoreload=100000
+"endif
 
 "====[ Key mappings ]=========
     let mapleader = ";" " default is \
@@ -134,6 +168,9 @@ endif
     "imap <C-x>   <Cmd>call codeium#Clear()<CR>
     "imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
     "imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
+    nmap <C-c> :call codeium#Chat()<CR>
+    "nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+    "#imap <script><silent><nowait><expr> <C-> codeium#Chat()
 
 "====[ CtrlSF ]====
     nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -187,7 +224,7 @@ endif
     " set update times
     autocmd BufWritePost * GitGutter
 
-"====[ Syntastic ]====
+"====[ syntastic ]====
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
@@ -221,19 +258,23 @@ endif
     highlight link SyntasticStyleErrorSign SignColumn
     highlight link SyntasticStyleWarningSign SignColumn
 
-"====[ Airline ]====
+"====[ airline ]====
     let g:airline#extensions#tabline#enabled = 1
 
-"====[ Flow ]====
+"====[ flow ]====
     let g:flow#autoclose=1
+
+"=== [ peekaboo ]===
+    " ctrl-r in insert mode
+    " @ or " in insert mode
 
 "===[ prettier ]===
     " npm -g install prettier
     " https://github.com/prettier/vim-prettier
-    let g:prettier#config#tab_width = 4
-    let g:prettier#config#jsx_bracket_same_line = 'false'
-    let g:prettier#config#print_width = 120
-    let g:prettier#config#parser = 'flow'
+    "let g:prettier#config#tab_width = 4
+    "let g:prettier#config#jsx_bracket_same_line = 'false'
+    "let g:prettier#config#print_width = 120
+    "let g:prettier#config#parser = 'flow'
     "let g:prettier#config#use_tabls = 'false'
     "let g:prettier#config#semi = 'true'
     "let g:prettier#config#sinfle_quote = 'true'
@@ -250,6 +291,7 @@ endif
     let g:terraform_fmt_on_save = 1
 
 "===[ coc ]=== NOTE this is here as something above it breaks the ]g key combo
+    " After updating the coc-settings.json file - run :CocUpdate
     set encoding=utf-8
     set nobackup
     set nowritebackup
@@ -288,6 +330,7 @@ endif
     " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
     nmap <silent> [g <Plug>(coc-diagnostic-prev)
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
+    "nmap <leader>gd :CocList diagnostics<CR>
 
     " GoTo code navigation
     nmap <silent> gd <Plug>(coc-definition)
@@ -404,6 +447,12 @@ endif
 
     " === coc-yank ===
     nnoremap <silent> fy  :<C-u>CocList -A --normal yank<cr>
+
+    "=== coc-prettier ===
+    command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+    "=== setting up for pio ===
+    "let g:ale_linters = { 'cpp': ['clangd'] }
+    "let g:ale_fixers = { 'cpp': ['clang-format'] }
 
 "========================================================================
 
@@ -535,7 +584,7 @@ endif
     endfunction
 
 "====[ Make the (vtextwidth)th column stand out ]====================
-    let g:vtextwidth_limit = 101
+    let g:vtextwidth_limit = 131
     highlight ColorColumn ctermbg=magenta
     call matchadd('ColorColumn', '\%'.(g:vtextwidth_limit).'v', 100)
     " ============================================================================================> = <=
