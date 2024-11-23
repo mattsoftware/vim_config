@@ -1,21 +1,44 @@
 {
-  "snippets.ultisnips.pythonPrompt": false,
-  "suggest.noselect": true,
-  "languageserver": {
-    "go": {},
-    "deno": {},
-    "css": {},
-    "yank": {},
-    "snippets": {},
-    "prettier": {},
-    "lists": {},
-    "html": {},
-    "eslint": {},
-    "tsserver": {},
-    "pyright": {},
-    "json": {}
-  },
-  "html.autoCreateQuotes": false,
-  "html.autoClosingTags": false
-
+    "snippets.ultisnips.pythonPrompt": false,
+    "suggest.noselect": true,
+    "languageserver": {
+        "go": {},
+        "deno": {},
+        "css": {},
+        "yank": {},
+        "snippets": {},
+        "prettier": {},
+        "lists": {},
+        "html": {},
+        "eslint": {},
+        "tsserver": {},
+        "pyright": {},
+        "json": {},
+        "clangd": {
+            "command": "clangd",
+            "args": ["--background-index"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        }
+    },
+    "html.autoCreateQuotes": false,
+    "html.autoClosingTags": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "graphql",
+        "handlebars"
+    ],
+    "prettier.ignorePath": ".prettierignore",
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "prettier.jsx_bracket_same_line": false,
+    "prettier.requirePragma": true,
+    "diagnostic.displayByAle": false,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.refreshOnInsertMode": false
 }
