@@ -13,27 +13,9 @@
 [submodule "bundle/textobj-user"]
 	path = bundle/textobj-user
 	url = git@github.com:kana/vim-textobj-user
-[submodule "bundle/textobj-gitgutter"]
-	path = bundle/textobj-gitgutter
-	url = git@github.com:gilligan/textobj-gitgutter
-[submodule "bundle/git-nerdtree"]
-	path = bundle/git-nerdtree
-	url = git@github.com:Xuyuanp/git-nerdtree
-[submodule "bundle/php.vim"]
-	path = bundle/php.vim
-	url = git@github.com:vim-scripts/php.vim--Hodge
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git@github.com:majutsushi/tagbar
-[submodule "bundle/html5"]
-	path = bundle/html5
-	url = git@github.com:othree/html5.vim
-[submodule "bundle/javascript"]
-	path = bundle/javascript
-	url = git@github.com:pangloss/vim-javascript
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = git@github.com:scrooloose/syntastic
 [submodule "bundle/dracula-theme"]
 	path = bundle/dracula-theme
 	url = git@github.com:dracula/vim
@@ -52,27 +34,12 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim
-[submodule "bundle/tern_for_vim"]
-	path = bundle/tern_for_vim
-	url = git@github.com:ternjs/tern_for_vim
 [submodule "bundle/vim-prettier"]
 	path = bundle/vim-prettier
 	url = git@github.com:mitermayer/vim-prettier
 [submodule "bundle/bufexplorer.vim"]
 	path = bundle/bufexplorer.vim
 	url = git@github.com:jlanzarotta/bufexplorer
-[submodule "bundle/VimCompletesMe"]
-	path = bundle/VimCompletesMe
-	url = git@github.com:ajh17/VimCompletesMe
-[submodule "bundle/typescript-tsuquyomi"]
-	path = bundle/typescript-tsuquyomi
-	url = git@github.com:Quramy/tsuquyomi
-[submodule "bundle/vimproc"]
-	path = bundle/vimproc
-	url = git@github.com:Shougo/vimproc.vim
-[submodule "bundle/vim-node"]
-	path = bundle/vim-node
-	url = git@github.com:moll/vim-node
 [submodule "bundle/instant-markdown-d"]
 	path = bundle/instant-markdown-d
 	url = git@github.com:suan/vim-instant-markdown

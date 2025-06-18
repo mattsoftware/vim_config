@@ -47,24 +47,16 @@ set shell=/bin/bash
     "call add(g:pathogen_disabled, 'ctrlp')
     call add(g:pathogen_disabled, 'ctrlsf')
     "call add(g:pathogen_disabled, 'dracula-theme')
-    call add(g:pathogen_disabled, 'git-nerdtree')
     "call add(g:pathogen_disabled, 'gitgutter')
-    call add(g:pathogen_disabled, 'html5')
     "call add(g:pathogen_disabled, 'instant-markdown-d')
-    call add(g:pathogen_disabled, 'javascript')
     "call add(g:pathogen_disabled, 'localrc')
     "call add(g:pathogen_disabled, 'nerdtree')
     "call add(g:pathogen_disabled, 'nerdtree-git-plugin')
-    call add(g:pathogen_disabled, 'php.vim')
     "call add(g:pathogen_disabled, 'presenting')
     "call add(g:pathogen_disabled, 'surround')
-    call add(g:pathogen_disabled, 'syntastic')
     "call add(g:pathogen_disabled, 'taboo')
     "call add(g:pathogen_disabled, 'tagbar')
-    call add(g:pathogen_disabled, 'tern_for_vim')
-    call add(g:pathogen_disabled, 'textobj-gitgutter')
     call add(g:pathogen_disabled, 'textobj-user')
-    call add(g:pathogen_disabled, 'typescript-tsuquyomi')
     "call add(g:pathogen_disabled, 'typescript-vim')
     "call add(g:pathogen_disabled, 'undotree')
     "call add(g:pathogen_disabled, 'vim-airline')
@@ -72,13 +64,10 @@ set shell=/bin/bash
     "call add(g:pathogen_disabled, 'vim-fugitive')
     "call add(g:pathogen_disabled, 'vim-go')
     call add(g:pathogen_disabled, 'vim-misc')
-    call add(g:pathogen_disabled, 'vim-node')
     "call add(g:pathogen_disabled, 'vim-peekaboo')
     call add(g:pathogen_disabled, 'vim-prettier')
     call add(g:pathogen_disabled, 'vim-session')
     "call add(g:pathogen_disabled, 'vim-terraform')
-    call add(g:pathogen_disabled, 'VimCompletesMe')
-    call add(g:pathogen_disabled, 'vimproc')
 
     "call pathogen"runtime_append_all_bundles()
     call pathogen#infect()
@@ -183,12 +172,6 @@ set cursorcolumn
     inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
     "let g:ctrlsf_debug_mode = 1
 
-""====[ git-nerdtree : NERD Tree (git) ]====
-"    "nmap <leader>t :NERDTreeToggle<CR>
-"    let g:NERDTreeUseSimpleIndicator = 1
-"    let g:NERDTreeQuitOnOpen = 1
-"    noremap <C-n> :NERDTreeToggle<CR>
-"    noremap <Leader>m :NERDTreeFind<CR>
 "====[ nerdrree ]====
     "nnoremap <leader>n :NERDTreeFocus<CR>
     "nnoremap <C-n> :NERDTree<CR>
@@ -223,40 +206,6 @@ set cursorcolumn
     execute "highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=NONE"
     " set update times
     autocmd BufWritePost * GitGutter
-
-"====[ syntastic ]====
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    "let g:syntastic_debug = 3
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1 " 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0 " 1
-    let g:syntastic_loc_list_height = 5
-    ""let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': [] }
-    ""let g:syntastic_html_tidy_exec = 'tidy --indent auto --indent-spaces 2'
-    ""let g:syntastic_html_checkers = ['html_lint.py']
-    ""let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-    "let g:syntastic_html_tidy_blocklevel_tags=["md-tabs", "md-tab", "md-cards", "md-card", "md-card-content"]
-    ""let g:syntastic_html_tidy_inline_tags=[]
-    ""let g:syntastic_html_tidy_empty_tags=[]
-
-    let g:syntastic_javascript_checkers = []
-    "let g:syntastic_javascript_checkers = ['eslint']
-    "let g:syntastic_javascript_checkers = ['flow']
-    " npm install -g eslint eslint-react eslint-plugin-react
-    "let g:syntastic_javascript_flow_exe = 'flow'
-
-    let g:syntastic_error_symbol = '❌'
-    let g:syntastic_style_error_symbol = '⁉️'
-    let g:syntastic_warning_symbol = '⚠️'
-    let g:syntastic_style_warning_symbol = '💩'
-
-    highlight link SyntasticErrorSign SignColumn
-    highlight link SyntasticWarningSign SignColumn
-    highlight link SyntasticStyleErrorSign SignColumn
-    highlight link SyntasticStyleWarningSign SignColumn
 
 "====[ airline ]====
     let g:airline#extensions#tabline#enabled = 1
