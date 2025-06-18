@@ -168,7 +168,7 @@ set cursorcolumn
     "imap <C-x>   <Cmd>call codeium#Clear()<CR>
     "imap <leader>j   <Cmd>call codeium#CycleCompletions(1)<CR>
     "imap <leader>h   <Cmd>call codeium#CycleCompletions(-1)<CR>
-    nmap <C-c> :call codeium#Chat()<CR>
+    " ctrl-c is such a bad mapping..... nmap <C-c> :call codeium#Chat()<CR>
     "nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
     "#imap <script><silent><nowait><expr> <C-> codeium#Chat()
 
@@ -331,6 +331,7 @@ set cursorcolumn
     nmap <silent> [g <Plug>(coc-diagnostic-prev)
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
     "nmap <leader>gd :CocList diagnostics<CR>
+    nmap <silent> gl :CocList diagnostics<CR>
 
     " GoTo code navigation
     nmap <silent> gd <Plug>(coc-definition)

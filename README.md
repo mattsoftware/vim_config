@@ -17,3 +17,5 @@ npm install
 popd
 ```
 
+To update the COC plugin - open up vim and run :CocUpdate
+

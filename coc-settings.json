@@ -14,12 +14,7 @@
         "tsserver": {},
         "pyright": {},
         "json": {},
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        }
+        "coc-clangd": {}
     },
     "html.autoCreateQuotes": false,
     "html.autoClosingTags": false,
