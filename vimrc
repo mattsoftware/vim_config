@@ -180,8 +180,8 @@ set cursorcolumn
     " This option quits nerdtree after opening a file
     let g:NERDTreeQuitOnOpen = 1
     " Start NERDTree when Vim is started without file arguments.
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+    "autocmd StdinReadPre * let s:std_in=1
+    "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 "====[ gitgutter : Git Gutter ]====
     " git gutter hide/show
